@@ -7,3 +7,5 @@ env:
 # SSH connection information 
 DBB_Host: 'ssh grsrini@3.109.182.248 -p 2222' # A valid SSH account on Z. With pre-generated and tested keys in the runner.
 on: workflow_dispatch
+jobs:
+ls -la
