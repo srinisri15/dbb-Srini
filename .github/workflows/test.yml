@@ -1,4 +1,4 @@
-name: Demo-DBB_Build_on_ZOS_With_GitHub_Actions_SSH
+name: Demo-DBB_Build_on_ZOS_With_GitHub_Actions_SSH1
 ## Notes:
 # A sample z/OS DBB workflow using GitHub Actions (GHA) with SSH connection
 # Global vars
