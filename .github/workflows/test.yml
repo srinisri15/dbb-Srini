@@ -13,5 +13,5 @@ jobs:
     steps:
     - name: Run a one-line script
       run: echo Testing Connection!
-    - name: Test Connection
-      run: ${{ env.DBB_Host }} ${{ env.Clone }}
+   # - name: Test Connection
+   #   run: ${{ env.DBB_Host }} ${{ env.Clone }}
