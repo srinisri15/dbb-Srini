@@ -37,6 +37,6 @@ jobs:
       - name: Run a one-line script
         run: echo Testing Connection!
       - name: Test Connection
-        run: 'ssh grsrini@3.109.182.248 -p 2022'
+        run: 'ssh grsrini@3.109.182.248 -p 2022 -v'
       - name: Run script
         run: 'pipeline-test/ssh-test'
