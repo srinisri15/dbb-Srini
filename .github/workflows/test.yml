@@ -3,12 +3,13 @@ name: Demo-DBB_Build_on_ZOS_With_GitHub_Actions_SSH
 # A sample z/OS DBB workflow using GitHub Actions (GHA) with SSH connection
 # Global vars
 env:
-# SSH connection information 
-DBB_Host: 'ssh grsrini@3.109.182.248 -p 2222' # A valid SSH account on Z. With pre-generated and tested keys in the runner.
+  # SSH connection information 
+  DBB_Host: 'ssh grsrini@3.109.182.248 -p 2222' # A valid SSH account on Z. With pre-generated and tested keys in the runner.
+  Clone: 'pipeline-test/ssh-test'
 on: workflow_dispatch
 jobs:
-Test SSH:
-runs-on: self-hosted
-Steps:
-  - name: Test SSH
-    run: /u/grsrini/pipeline-test/ssh-test
+  Test_SSH:
+    runs-on: self-hosted
+    steps:
+    - name: Clone repository
+      run: ${{ env.DBB_Host }}
