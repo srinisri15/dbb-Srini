@@ -9,11 +9,7 @@ on: workflow_dispatch
 jobs:
 Test SSH:
 runs-on: self-hosted
-env:
-# Project related variables
-Myhome: /u/grsrini
-Myscript: /u/grsrini/pipeline-test
 
 Steps:
   - name: Test SSH
-    run: ${{ env.Myscript }}/ssh-test
+    run: /u/grsrini/pipeline-test/ssh-test
