@@ -11,5 +11,10 @@ jobs:
   Test_SSH:
     runs-on: self-hosted
     steps:
+    - name: powershell allow...
+        shell:cmd
+        run:powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    - name: check powershell version
+        run:$host.Version
     - name: Clone repository
       run: ${{ env.DBB_Host }}
