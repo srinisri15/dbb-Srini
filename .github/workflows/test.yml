@@ -1,17 +1,38 @@
-name: Test Connection
-## Notes:
-# A sample z/OS DBB workflow using GitHub Actions (GHA) with SSH connection
-# Global vars
-env:
-  # SSH connection information 
-  DBB_Host: 'ssh grsrini@3.109.182.248 -p 2022' # A valid SSH account on Z. With pre-generated and tested keys in the runner.
-  Clone: '/u/grsrini/pipeline-test/ssh-test'
-on: workflow_dispatch
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Test_SSH:
-    runs-on: self-hosted
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    #runs-on: ubuntu-latest
+    runs-on: Windows
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Run a one-line script
-      run: echo Testing Connection!
-   # - name: Test Connection
-   #   run: ${{ env.DBB_Host }} ${{ env.Clone }}
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      #- uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+        # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+      - name: Run a one-line script
+        run: echo Testing Connection!
