@@ -39,4 +39,4 @@ jobs:
       - name: Test Connection
         run: 'ssh -t -t grsrini@3.109.182.248 -p 2022 -vvv'
       - name: Run script
-        run: './ssh-test.sh'
+        run: './pipeline-test/ssh-test.sh'
