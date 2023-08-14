@@ -9,7 +9,6 @@ on: workflow_dispatch
 jobs:
 Test SSH:
 runs-on: self-hosted
-
 Steps:
   - name: Test SSH
     run: /u/grsrini/pipeline-test/ssh-test
