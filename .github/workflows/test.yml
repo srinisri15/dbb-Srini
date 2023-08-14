@@ -8,4 +8,14 @@ env:
 DBB_Host: 'ssh grsrini@3.109.182.248 -p 2222' # A valid SSH account on Z. With pre-generated and tested keys in the runner.
 on: workflow_dispatch
 jobs:
-ls -la
+DBB_Build_on_zOS:
+runs-on: self-hosted
+env:
+# Project related variables. GHA automatically fills in relevant repository information for values enclosed in ${{ ... }}.
+MyRepo: git@github.com:${{ github.repository }}.git # Source code repository URL (SSH)
+MyBranch: ${{ github.ref }} # Branch on which to run the GHA pipeline MyWorkDir: tmp/ghActions/ghAction_poc-workspace_run_${{ github.run_number }} # Absolute path to directory for storing the clone and build outputs MyWorkSpace: /u/laurenl/ghAction_poc-workspace # Absolute path to workspace (root) directory containing all required source directories MyApplication: ghAction-poc-app # Application directory name (relative to MyWorkSpace) MyHlq: LAURENL.SSH # High level qualifier for partitioned data sets created during the build
+steps:
+- name: Clone repository
+run: ${{ env.DBB_Host }} ${{ env.Clone }} ${{ env.MyRepo }} ${{ env.MyWorkDir }} ${{ env.MyWorkSpace }} ${{ env.MyBranch }}
+- name: DBB Impact Build
+run: ${{ env.DBB_Host }} ${{ env.DBB_Build }} ${{ env.MyWorkDir }} ${{ env.MyWorkSpace }} ${{ env.MyApplication }} ${{ env.MyHlq }} --impactBuild
